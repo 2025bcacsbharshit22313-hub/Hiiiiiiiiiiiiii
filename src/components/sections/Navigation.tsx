@@ -8,6 +8,7 @@ const navLinks = [
   { id: 'home', label: 'Home', href: '#home' },
   { id: 'problem', label: 'Problem', href: '#problem' },
   { id: 'solution', label: 'Solution', href: '#solution' },
+  { id: 'diseases', label: 'Diseases', href: '#diseases' },
   { id: 'chatbot', label: 'Chatbot', href: '#chatbot' },
   { id: 'impact', label: 'Impact', href: '#impact' },
   { id: 'contact', label: 'Contact', href: '#contact' },

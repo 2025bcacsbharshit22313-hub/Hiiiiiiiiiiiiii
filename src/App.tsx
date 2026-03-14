@@ -2,6 +2,7 @@ import { Navigation } from '@/components/sections/Navigation';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { ProblemSection } from '@/components/sections/ProblemSection';
 import { SolutionSection } from '@/components/sections/SolutionSection';
+import { DiseaseInfoSection } from '@/components/sections/DiseaseInfoSection';
 import { ChatbotDemoSection } from '@/components/sections/ChatbotDemoSection';
 import { LanguageSection } from '@/components/sections/LanguageSection';
 import { ImpactFutureSection } from '@/components/sections/ImpactFutureSection';
@@ -25,6 +26,9 @@ function App() {
 
         {/* Solution Section */}
         <SolutionSection />
+
+        {/* Disease Information Section */}
+        <DiseaseInfoSection />
 
         {/* Chatbot Demo Section */}
         <ChatbotDemoSection />
