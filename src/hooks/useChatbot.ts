@@ -1,6 +1,8 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import type { Message } from '@/types';
-import { supportedLanguages } from '@/lib/chatbotLogic';
+import { supportedLanguages, processMessage } from '@/lib/chatbotLogic';
+
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 export function useChatbot() {
 
@@ -42,7 +44,7 @@ export function useChatbot() {
 
     try {
 
-      const response = await fetch("http://localhost:3000/chat", {
+      const response = await fetch(`${API_URL}/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -64,11 +66,13 @@ export function useChatbot() {
 
       setMessages((prev) => [...prev, botMessage]);
 
-    } catch (error) {
+    } catch {
+
+      const fallbackReply = processMessage(text, language);
 
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: "Sorry, I couldn't connect to the AI service. Please try again.",
+        text: fallbackReply,
         sender: 'bot',
         timestamp: new Date(),
       };
